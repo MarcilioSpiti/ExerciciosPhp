@@ -17,7 +17,7 @@ $linhaAtual="";
                 }
                 
                 $nl = (strlen($textArray[$i]) / $length);
-                for ($j = 0; $j < $numLinhas; $j++) {
+                for ($j = 0; $j < $nl; $j++) {
                     $linhaAtual = substr($textArray[$i], $j * $length, $length);
                     array_push($linhas, $linha);
                 }
