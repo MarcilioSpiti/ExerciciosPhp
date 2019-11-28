@@ -8,28 +8,56 @@ namespace Galoa\ExerciciosPhp\TextWrap;
 class Resolucao implements TextWrapInterface {
 
 
-            $quebra = explode(" ", $text);
-            $limiteAtual = 0;
-            $textFinal = "";
-
-
-            if ($length<=0){
-              echo "Sem parametro viavél";
-              }
-              if (strlen($text)==0){
-              echo "Digite o texto";
-              } 
-
-            for ($i = 0; $i < count($quebra); $i++) {
-                if (strlen($quebra[$i]) < ($length - $limiteAtual)) {
-
-                    $textFinal = " " . $quebra[$i];
-                    $limiteAtual = $limiteAtual + (strlen($textFinal) - 1);
-                } elseif (strlen($quebra[$i]) > ($length - $limiteAtual)) {
-
-                    $textFinal = "<br/ >" . $quebra[$i];
-                    $limiteAtual = $limiteAtual + (strlen($textFinal) - 1);
-                }
-                echo $textFinal;
+   public function textWrap(string $text, int $length): array {
+    $palavra = "";
+	
+	if (strlen($text)>$length)
+            {
+				
+		for ($i=0; $i<strlen($text);$i++)
+		{
+			if ($text[$i]!=" ")
+			{
+                            	$palavra = $palavra.$text[$i];
+			}
+			elseif ($text[$i] == " ")
+			{
+                        if (strlen($palavra)<=$length)
+				{
+                            if (strlen($meuarray[count($meuarray)-1]. " ". $palavra) <= $length)
+					{
+						$meuarray[count($meuarray)-1]=ltrim($meuarray[count($meuarray)-1].(strlen($palavra)==0?"":" "). $palavra);
+                        }
+				else
+				{
+                                    
+                                if (strlen($palavra)>$length)
+					{					
+						$aux = $length-1-strlen($meuarray[count($meuarray)-1]);
+						$meuarray[count($meuarray)-1]=ltrim($meuarray[count($meuarray)-1]. " " . substr($palavra, 0, $aux));
+						$meuarray[] = substr($palavra, $aux);
+					}
+				}
+                                lavra;
+				$palavra = "";
+			}
+		}   
+		
+		if (strlen($palavra)>$length)
+		{					
+			$aux = $length-1-strlen($meuarray[count($meuarray)-1]);
+			$meuarray[count($meuarray)-1]=ltrim($meuarray[count($meuarray)-1]. " " . substr($palavra, 0, $aux));
+			$meuarray[] = substr($palavra, $aux);
+		} 
+		else 
+		{
+			$meuarray[] = $palavra;
+		}
+	}
+		
+	print_r($meuarray);
+	return $meuarray;
+          
             }
-        }
+    }
+}
