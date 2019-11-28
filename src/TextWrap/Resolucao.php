@@ -19,11 +19,11 @@ $linhaAtual="";
                 $nl = (strlen($textArray[$i]) / $length);
                 for ($j = 0; $j < $nl; $j++) {
                     $linhaAtual = substr($textArray[$i], $j * $length, $length);
-                    array_push($linhas, $linha);
+                    array_push($linhas, $linhaAtual);
                 }
                 $linhaAtual = ""; 
                 if (strlen($textArray[$i]) % $length != 0) {
-                    $linha = substr($textArray[$i], $numLinhas * $length, $length);
+                    $linha = substr($textArray[$i], $nl * $length, $length);
                 }
         }
         elseif (strlen($textArray[$i]) + strlen($linhaAtual) < $length) {
