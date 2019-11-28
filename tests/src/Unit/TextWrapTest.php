@@ -68,17 +68,17 @@ class TextWrapTest extends TestCase {
   }
 //teste para palavras compridas.
 public function testForBigWords() {
-  $ret = $this->resolucao->textWrap($this->baseString, 7);
+  $ret = $this->resolucao->textWrap($this->baseString, 8);
     $this->assertCount(10, $ret);
     $this->assertEquals("Se vi", $ret[0]);
     $this->assertEquals("mais", $ret[1]);
     $this->assertEquals("longe", $ret[2]);
     $this->assertEquals("foi por", $ret[3]);
-    $this->assertEquals("estar", $ret[4]);
-    $this->assertEquals("de pé", $ret[5]);
+    $this->assertEquals("estar de", $ret[4]);
+    $this->assertEquals("pé", $ret[5]);
     $this->assertEquals("sobre", $ret[6]);
   $this->assertEquals("ombros", $ret[7]);
-  $this->assertEquals("de giga", $ret[8]);
-  $this->assertEquals("ntes", $ret[9]);
+  $this->assertEquals("de", $ret[8]);
+  $this->assertEquals("gigantes", $ret[9]);
   }
 }
