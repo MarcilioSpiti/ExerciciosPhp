@@ -5,11 +5,10 @@ namespace Galoa\ExerciciosPhp\TextWrap;
 /**
  * Implemente sua resolução aqui.
  */
-class Resolucao implements TextWrapInterface {
-
-
-   public function textWrap(string $text, int $length): array {
+class Resolucao implements TextWrapInterface{
+    public function textWrap(string $text, int $length): array {
     $palavra = "";
+    $meuarray= str_split($text);
 	
 	if (strlen($text)>$length)
             {
@@ -55,9 +54,11 @@ class Resolucao implements TextWrapInterface {
 		}
 	}
 		
-	print_r($meuarray);
+	echo $meuarray;
 	return $meuarray;
           
             }
     }
 }
+    
+   
