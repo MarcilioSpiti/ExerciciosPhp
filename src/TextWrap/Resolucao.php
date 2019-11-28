@@ -2,12 +2,7 @@
 
 namespace Galoa\ExerciciosPhp\TextWrap;
 
-/**
- * Implemente sua resolução aqui.
- */
-
 class Resolucao implements TextWrapInterface {
-
 
 public function textWrap(string $text, int $length): array {
         
@@ -45,11 +40,7 @@ $linhaAtual="";
         }
        
         array_push($linhas, $linhaAtual);
-        return $linhas;
-    
-        
-
-
+        return $linhas;        
 
 }
     
