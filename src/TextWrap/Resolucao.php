@@ -10,50 +10,51 @@ class Resolucao implements TextWrapInterface {
 
 
 public function textWrap(string $text, int $length): array {
-        $linhas = array();
-        //separa as palavras em posições do vetor
-        $palavras = $this->wordDivide($text);
-        $linha = "";//linha atual a ser concatenada com as palavras
-        for($i = (int) 0; $i < sizeof($palavras); $i++) {
-        	//caso a palavra sejá maior que a linha
-            if (strlen($palavras[$i]) / $length > 1) {
-                //verifica se existe uma linha anterior e se existe finaliza
-                if (strlen($linha) != 0) {
+        
+$linhas=array();
+$textArray=explode(" ", $text);
+$linhaAtual="";
+
+
+
+
+
+        for ($i=0;$i<count($textArray);$i++){
+            if (strlen($textArray[$i]) / $length > 1) {
+                if (strlen($linhaAtual) != 0) {
+                    array_push($linhas, $linhaAtual);
+                }
+                
+                $nl = (strlen($textArray[$i]) / $length);
+                for ($j = 0; $j < $numLinhas; $j++) {
+                    $linhaAtual = substr($textArray[$i], $j * $length, $length);
                     array_push($linhas, $linha);
                 }
-                //verifica em quantas linhas a palavra será escrita
-                $numLinhas = (int)(strlen($palavras[$i]) / $length);
-                for ($n = (int)0; $n < $numLinhas; $n++) {
-                    $linha = substr($palavras[$i], $n * $length, $length);
-                    array_push($linhas, $linha);
+                $linhaAtual = ""; 
+                if (strlen($textArray[$i]) % $length != 0) {
+                    $linha = substr($textArray[$i], $numLinhas * $length, $length);
                 }
-                $linha = ""; //limpa a linha
-                if (strlen($palavras[$i]) % $length != 0) {
-                    $linha = substr($palavras[$i], $numLinhas * $length, $length);
-                }
-            } else if ((strlen($palavras[$i]) + strlen($linha)) < $length) { //verifica se pode adicionar a palavra na linha atual
-                if(strlen($linha) == 0){ //caso a palavra senha a primeira da linha não é nescessario adicionar espaço
-                    $linha = $palavras[$i];
+        }
+        elseif (strlen($textArray[$i]) + strlen($linhaAtual) < $length) {
+                if(strlen($linhaAtual) == 0){ 
+                    $linhaAtual = $textArray[$i];
                 } else {
-                    $linha = $linha . " " . $palavras[$i];
+                    $linhaAtual = $linhaAtual . " " . $textArray[$i];
                 }
-            } else { //muda de linha 
-                array_push($linhas, $linha);
-                $linha = $palavras[$i];
+            }
+            else { 
+                array_push($linhas, $linhaAtual);
+                $linhaAtual = $textArray[$i];
             }
         }
-        //finaliza adicionando a ultima linha
-        array_push($linhas, $linha);
+       
+        array_push($linhas, $linhaAtual);
         return $linhas;
-    }
-     	public function wordDivide(string $text):array{
-        $palavras = array();
-        $num_palavra = (int) 0;
-        $tam_text = (int) strlen($text);
+    
+        
 
-
-}
 
 
 }
     
+    }
