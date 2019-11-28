@@ -5,6 +5,10 @@ namespace Galoa\ExerciciosPhp\TextWrap;
 /**
  * Implemente sua resolução aqui.
  */
+
+class Resolucao implements TextWrapInterface {
+
+
 public function textWrap(string $text, int $length): array {
         $linhas = array();
         //separa as palavras em posições do vetor
@@ -50,4 +54,6 @@ public function textWrap(string $text, int $length): array {
 
 }
 
+
+}
     
