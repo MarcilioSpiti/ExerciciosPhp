@@ -15,10 +15,6 @@ $linhas=array();
 $textArray=explode(" ", $text);
 $linhaAtual="";
 
-
-
-
-
         for ($i=0;$i<count($textArray);$i++){
             if (strlen($textArray[$i]) / $length > 1) {
                 if (strlen($linhaAtual) != 0) {
