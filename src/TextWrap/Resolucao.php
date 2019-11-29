@@ -23,7 +23,7 @@ $linhaAtual="";
                 }
                 $linhaAtual = ""; 
                 if (strlen($textArray[$i]) % $length != 0) {
-                    $linha = substr($textArray[$i], $nl * $length, $length);
+                    $linhaAtual = substr($textArray[$i], $nl * $length, $length);
                 }
         }
         elseif (strlen($textArray[$i]) + strlen($linhaAtual) < $length) {
